@@ -15,22 +15,21 @@ public class TaskService {
         this.taskRepository =  taskRepository;
     }
 
-    // יצירת משימה חדשה
     public Task createTask(Task task) {
         return taskRepository.save(task);
     }
 
-    // קבלת כל המשימות
+
     public List<Task> getAllTasks() {
         return taskRepository.findAll();
     }
 
-    // קבלת משימה לפי ID
+
     public Optional<Task> getTaskById(Long id) {
         return taskRepository.findById(id);
     }
 
-    // עדכון משימה קיימת
+
     public Task updateTask(Long id, Task updatedTask) {
         Optional<Task> existingTaskOptional = taskRepository.findById(id);
         if (existingTaskOptional.isPresent()) {
@@ -46,7 +45,7 @@ public class TaskService {
         }
     }
 
-    // מחיקת משימה לפי ID
+
     public void deleteTask(Long id) {
          taskRepository.deleteById(id);
     }
